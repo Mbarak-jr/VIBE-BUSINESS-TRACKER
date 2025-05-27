@@ -1,4 +1,3 @@
-// src/store/index.js
 import { create } from 'zustand';
 
 const useStore = create((set) => ({
@@ -23,7 +22,7 @@ const useStore = create((set) => ({
   success: null,
   setSuccess: (success) => set({ success }),
 
-  // Landing page visibility
+  // Landing section state
   visibleSection: null,
   setVisibleSection: (section) => set({ visibleSection: section }),
 }));
