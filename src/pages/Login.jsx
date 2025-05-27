@@ -1,9 +1,8 @@
-// src/pages/Login.jsx
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { signInWithEmail, signInWithGoogle } from '../services/authService'
 import Loader from '../components/Common/Loader'
-import { EyeIcon, EyeSlashIcon } from '@heroicons/react/24/outline'
+import { EyeIcon, EyeSlashIcon, ArrowLeftIcon } from '@heroicons/react/24/outline'
 
 const Login = () => {
   const [email, setEmail] = useState('')
@@ -22,7 +21,7 @@ const Login = () => {
     try {
       const { error } = await signInWithEmail(email, password)
       if (error) throw error
-      navigate('/')
+      navigate('/dashboard')
     } catch (err) {
       setError(err.message)
     } finally {
@@ -46,6 +45,15 @@ const Login = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-50 to-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+      {/* Back to Home button */}
+      <button 
+        onClick={() => navigate('/')}
+        className="absolute top-4 left-4 flex items-center text-purple-600 hover:text-purple-800 transition-colors duration-200"
+      >
+        <ArrowLeftIcon className="h-5 w-5 mr-1" />
+        <span className="text-sm font-medium">Back to Home</span>
+      </button>
+
       <div className="max-w-md w-full space-y-8 bg-white p-10 rounded-xl shadow-lg">
         <div className="text-center">
           <h2 className="mt-6 text-3xl font-extrabold text-gray-900">

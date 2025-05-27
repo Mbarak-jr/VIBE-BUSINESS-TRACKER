@@ -7,7 +7,7 @@ const Header = ({ onMenuToggle }) => {
 
   const handleSignOut = async () => {
     await signOut()
-    navigate('/login')
+    navigate('/') // Changed from '/login' to '/'
   }
 
   return (
@@ -49,10 +49,10 @@ const Header = ({ onMenuToggle }) => {
             <span className="absolute top-0 right-0 h-2 w-2 rounded-full bg-red-500 ring-2 ring-white"></span>
           </button>
 
-          {/* Sign Out - Simplified */}
+          {/* Sign Out - Updated to be more prominent */}
           <button 
             onClick={handleSignOut}
-            className="text-sm text-gray-500 hover:text-red-600 transition-colors duration-200"
+            className="px-3 py-1 text-sm text-white bg-red-500 hover:bg-red-600 rounded-md transition-colors duration-200 flex items-center"
             title="Sign Out"
           >
             Sign Out
